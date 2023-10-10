@@ -1,0 +1,67 @@
+<!-- views/profile.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile</title>
+  <style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #111;
+    }
+
+    .active {
+      background-color: #045aaa;
+    }
+
+    .profile {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .avatar {
+      width: 100px; /* Set your desired width */
+      height: 100px; /* Set your desired height */
+      border-radius: 50%; /* For a circular avatar */
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a href="/">My Application</a></li>
+     <% if (user) { %>
+      <li style="float:right"><a class="active" href="/logout" class="btn">Logout</a></li>
+      <li style="float:right"><a href="/profile"><%= user.nickname %></a></li>
+      <% } else { %>
+        <li style="float:right"><a class="active" href="/login">Login</a></li>
+      <% } %>
+  </ul>
+
+   <div class="profile">
+    <h1>User Profile</h1>
+    <img src="<%= user.picture %>" alt="<%= user.nickname %>'s Avatar" class="avatar">
+    <h1><%= user.name %></h1>
+    <p>Username: <%= user.nickname %></p>
+    <p>Email: <%= user.email %></p>
+    <a href="/">Back to Home</a>
+  </div>
+</body>
+</html>

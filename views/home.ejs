@@ -1,0 +1,75 @@
+<!-- views/home.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+<style>
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #111;
+    }
+
+    .active {
+      background-color:  #045aaa;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a href="/">My Application</a></li>
+     <% if (user) { %>
+      <li style="float:right"><a class="active" href="/logout" class="btn">Logout</a></li>
+      <li style="float:right"><a href="/profile"><%= user.nickname %></a></li>
+      <% } else { %>
+        <li style="float:right"><a class="active" href="/login">Login</a></li>
+      <% } %>
+  </ul>  
+  
+  <% if (isAuthenticated) { %>
+    <!-- Display country data in a table for authenticated users -->
+    <h2>The Countries and their flags</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Flag</th>
+          <th>Country Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% countryData.forEach((country) => { %>
+          <tr>
+            <td>
+              <img src="<%= country.flagUrl %>" alt="<%= country.name %> Flag" width="75">
+            </td>
+            <td style="padding-left: 210px;"><%= country.name %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <!-- Display a message or content for non-authenticated users -->
+    <h1>Please login to see country data.</h1>
+  <% } %>
+  </table>
+
+</body>
+</html>
