@@ -14,8 +14,8 @@ This is a small web application that displays a list of available countries and 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
+   git clone https://github.com/omarelsabaawy/SecondProfit-Task.git
+   cd SecondProfit-Task
    ```
 2. **Install dependencies:**
 
