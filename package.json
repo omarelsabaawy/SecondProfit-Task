@@ -7,7 +7,7 @@
     "start": "node app.js"
   },
   "keywords": [],
-  "author": "Omar Elsabaawy,
+  "author": "Omar Elsabaawy",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.5.1",
