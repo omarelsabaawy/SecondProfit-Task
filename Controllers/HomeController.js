@@ -11,9 +11,9 @@ const fetchCountryData = async () => {
         .connect();
 
     const countryData = await client.get('countryData');
-    await client.disconnect();
 
     if (countryData) {
+        await client.disconnect();
         return JSON.parse(countryData);
     } else {
         try {
